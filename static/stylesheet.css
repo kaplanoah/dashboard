@@ -1,7 +1,7 @@
 q {
-	display: block;
+    display: block;
 }
 
 q:before, q:after {
-	content: '';
+    content: '';
 }
