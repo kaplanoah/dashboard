@@ -1,0 +1,7 @@
+q {
+	display: block;
+}
+
+q:before, q:after {
+	content:''
+}
