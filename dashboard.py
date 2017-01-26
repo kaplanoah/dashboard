@@ -42,6 +42,10 @@ def sms():
 @app.route('/latest-quote', methods=['GET'])
 def latest_quote():
     quote = Quote.query.order_by(Quote.created.desc()).first()
+
+    if not quote:
+        return jsonify(latest_quote=None)
+
     return jsonify(latest_quote=quote.text)
 
 if __name__ == '__main__':
