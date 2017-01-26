@@ -35,6 +35,8 @@ def sms():
     db.session.add(Quote(quote_text))
     db.session.commit()
 
+    return quote_text
+
     # quote too long
     # quote not unique
 
