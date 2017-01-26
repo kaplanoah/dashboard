@@ -35,9 +35,11 @@ def sms():
     db.session.add(Quote(quote_text))
     db.session.commit()
 
-    resp = twiml.Response()
-    resp.message('received: %s' % message_body)
-    return str(resp)
+    # quote too long
+    # quote not unique
+
+    # resp = twiml.Response()
+    # resp.message('received: %s' % message_body)
 
 @app.route('/latest-quote', methods=['GET'])
 def latest_quote():
