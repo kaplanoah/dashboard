@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv, find_dotenv
@@ -14,12 +14,14 @@ db = SQLAlchemy(app)
 class Quote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(500), unique=True)
+    created =  db.Column(db.DateTime, server_default=db.func.now())
+    modified = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
     def __init__(self, text):
         self.text = text
 
     def __repr__(self):
-        return '<Quote %r>' % self.text
+        return '<Quote %s %s %s %r>' % (self.id, self.created, self.modified, self.text)
 
 @app.route('/')
 def home():
@@ -36,6 +38,11 @@ def sms():
     resp = twiml.Response()
     resp.message('received: %s' % message_body)
     return str(resp)
+
+@app.route('/latest-quote', methods=['GET'])
+def latest_quote():
+    quote = Quote.query.order_by(Quote.created.desc()).first()
+    return jsonify(latest_quote=quote.text)
 
 if __name__ == '__main__':
     app.run()
