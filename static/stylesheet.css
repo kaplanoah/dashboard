@@ -1,7 +1,22 @@
+body {
+    margin: 100px;
+}
+
 q {
     display: block;
+    text-align: center;
+    font-family: verdana;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 2;
 }
 
 q:before, q:after {
     content: '';
+}
+
+#jordan {
+    font-family: 'Permanent Marker';
+    font-size: 60px;
+    color: rgb(63, 202, 177);
 }
