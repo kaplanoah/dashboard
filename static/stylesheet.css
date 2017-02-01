@@ -1,14 +1,15 @@
 body {
-    margin: 100px;
+    margin: 70px;
 }
 
 q {
     display: block;
     text-align: center;
-    font-family: verdana;
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
 q:before, q:after {
@@ -22,7 +23,16 @@ q:before, q:after {
 
 #jordan {
     font-family: 'Canadian Scratch';
-    font-size: 90px;
+    letter-spacing: normal;
+    font-size: 70px;
     color: rgb(63, 202, 177);
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+}
+
+.testimonial {
+    font-family: 'Roboto slab';
+    letter-spacing: normal;
+    font-size: 35px;
+    color: #555;
+    margin-top: 70px;
 }
