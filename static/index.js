@@ -6,7 +6,7 @@
             $('#jordan').text(data.latest_quote);
         },
         complete: function() {
-            setTimeout(updateQuote, 120000);
+            setTimeout(updateQuote, 1800000);
         }
     });
 })();
